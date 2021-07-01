@@ -1,13 +1,24 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="style.css" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/stylesheet.css' %}" type="text/css" />
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="wrapper">
-        <a href="/1/" class="butt">Начать опрос</a>
+        <a href="/1/" class="butt" id="startPoll">Начать опрос</a>
     </div>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function(){
+    $.getScript("{% static 'js/index.js' %}")
+    })
+</script>
 </body>
 </html>
+

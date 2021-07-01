@@ -5,14 +5,14 @@ from django.utils import timezone
 
 class Question(models.Model):
     question_text = models.CharField(max_length=300)
-    pub_date = models.DateTimeField('Дата публикации')
+    pub_date = models.DateTimeField('Дата публикации', auto_now=True)
 
     def __str__(self):
         return self.question_text
 
 
 class Choice(models.Model):
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    question = models.ForeignKey(Question, on_delete=models.CASCADE, related_name="choices")
     choice_text = models.CharField(max_length=300)
     votes = models.IntegerField(default=0)
 
